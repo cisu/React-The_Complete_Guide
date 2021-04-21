@@ -1,0 +1,116 @@
+// Components: is re-usable code
+
+
+// Declarative Approach: 
+Basically manes that with react, you will not tell react that a certain HTML element should be created and inserted in a specific place, on the user interface as you would be doing it with just JavaScript.
+Instead with React and that's really important, you will always define the desired end state, the target sate or possibly also different target states.
+
+So 
+Declarative Approach: Define the desired target state(s) and let React figure out the actual JavaScript DOM instructions.
+
+
+//////////////////////////////////////////////////////////
+index.js files is the fisrt file which will be executed whenever this page is loaded.
+
+ReactDOM is exporting some ReactDM object
+and we're importing into index.js.
+And we are importing it to them call a method, the render method
+on that imported object.
+
+The render method takes two parameters here.
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+The second argment is a default JacaScript DOM API.
+On the global document object we have the getElementById method to select a certain DOM HTML element by its ID.
+document.getElementById('root')
+
+
+In public folder we have an index.html file.
+has a div with id='root'
+
+Back to scr folder in App.js
+The is a function name App with capital character (A)
+
+
+
+
+/////////////////////////////////////////////////////////////
+In dev tools in chrome
+source the is a file bundle.js this is the entire React package code.
+
+
+
+//////////////////////////////////////////////////////////////
+
+How React Works
+
+
+Imperative approach: Is when you are giving clear instructions, clear step-by-step instructiions, what JavaScript and the browser should be doing.
+
+
+/////////////////////////////////////////////////////////////
+
+Outputting Dynamic Data &
+Working with Expressions in JSX
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
