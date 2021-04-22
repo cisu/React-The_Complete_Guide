@@ -1,0 +1,60 @@
+// Listening to Events & Working
+with Event Handlers
+
+Create a button element
+
+<button></button>
+
+
+
+On all built-in HTML elements, like divs and h2, buttons and so on.
+We have full access to all these native DOM events.
+
+more here: https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement
+
+In DOM interface: https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement
+We see from which other elements or from whichever classes this inherits in the end.
+
+HTMLButtonElement is more specific of the HTMLElement
+HTMLElement is more specific of the Element
+Element is more specific of the Node
+Node is more specific of the EventTarget
+
+In react instead of do this like vanilla JS
+document.getElementById('root').addEventListener()
+this is the imperative way of doing that.
+
+
+
+in react do this 
+
+<button onClick={clickHandler}></button>
+
+on is define the props in event 
+
+
+
+If an element supports an event, then you can add a listener wifth React by adding  'on' and then then event name prop.
+-> onClick,
+-> onAbort
+-> onAnimationEnd
+ect
+Just make suke that the event name starts with a capital characther 'onClick'
+
+And then defined in line function or better defined upfront and React will execute that function for you when that event occurs.
+
+const clickHandler = () =>{
+    console.log('clicked!');
+}
+
+<button onClick={clickHandler}></button>
+we call then functiion with out the '()' clickHandler() because if we can () then the code will be execute immediately.
+
+
+/////////////////////////////////////////////////
+BEST PRACTICE NAME A FUNNCTION
+
+if they are triggered upon an event, that end with Handler like above clickHandler.
+
+
+That's will be sure it is a function which is not called by us, somewhere else in our code, but that it is a function which we attached to an event listener so thath it's eventually called by React when taht event occurs.

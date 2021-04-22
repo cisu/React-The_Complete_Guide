@@ -1,0 +1,83 @@
+State is actually not a React specific concept, but it is a key concept in React as well. 
+
+Regular variable are not triggered such a re-evaluattion.
+React dosen't care about that.
+
+if a variable in a component function and that variable changes, React ignores it. It doesn't care about that, the code executes, sure, but the overall component function doesn't execute again just because some varibale changed.
+
+And as a side note, even if it would execute again, all assigned variables would just be recreated and re-initialized to the props value. Because as part of this component function we are creating this title variable.
+
+So even if that would happen we wouldn't reach the desired result.
+
+So to tell React that is should run it again, we nned to import something from the React library.
+
+And we do it as by adding a so-called named import. 
+ 
+import React, {  } from 'react';
+
+In above we importted the overrall React object, and in { import single pieces from React library. }
+
+useState: this is a function provided by the react library and this function allows us to define values as state where changes to these values shoud reflect in the component function being called again.
+
+////////////////////////////////
+How do we use this useState function:
+
+Inside of our component function and that's important, we have to do that inside of this function. 
+We just call useState. 
+And useState is so-called React hook
+
+
+All these React hooks can be recognized by the fact that they start with the word "use" in there name. 
+And all these hooks MUST ONLY BE CALLED inside of React components functions, like ExpenseItem. 
+They can't be called outside of these functions or any nested functions (clickHandler).
+They must be called directly inside such components functions.
+
+
+Now useState doesn't work just like that.
+Instead useState once a default state value.
+Because with useState we basically create a specail kind of varible. A varible where changes will lead this component ExpenseItem to be called again.
+
+
+const ExpenseItem = (props) => {
+
+    useState();
+
+    let title = props.title
+
+    const clickHandler = () => {
+       title = 'Updated!'
+       console.log(title)
+    }
+
+    return (
+        <div>Kalhmera</div>
+    )
+}
+
+export default ExpenseItem
+
+useState return an array where,
+the first value is the variable itself,
+and the second element in the array is that updating function.
+
+And we can use a morden JS feature called arry destructuring, which look like this:
+
+const [title, setTitle] = useState(props.title)
+
+to store both elements in separate variables or constants, 
+we can choose any names of your choice because for array destructuring, it's just your order which matters (title and setTitle)
+
+We're not going to assign a new value with an equal sign.
+not that (title = something)
+
+We assign a new value by calling setTitle
+And then we just passed a new value as argument, in this case updated.
+    
+    setTitle('Updated!')
+
+So why does this work?
+why need  setTitle('Updated!')  and we can't just do  
+title = 'Updated!'
+
+The reason for that is, that calling this function does not just assing a new value to some variable, but that instaed it is a special varible to begin with.
+It's managed by React somewhere in menory and when we call this state updating function, this special variable will not just receive a new value but (and that's important) the component function in which you called this state updating function. And in which you initialized your state with useState will be executed again.

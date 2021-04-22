@@ -1,0 +1,32 @@
+Reacting to events is an important first step, 
+how can we now change what shows up on the screen?
+
+We could create a varible with let
+
+let title = props.title
+
+and initially that holds the value we finf in props title.
+And then we use this title variable in there 
+ <h2>{title}</h2>
+
+ to output the title
+
+ But React work like this so doesn't output in screen anything
+
+ Remember component is a function. Is just a regular function, the only specail thing about that function, is tjat it returns JSX. Now since it's a function someone has to call it, and we nver called our component functions, instead we just used these functions like HTML elements in this JSX code.
+
+ The thing is, under the hood this is almost like a function call. 
+ By using our components in JSX code, we make React aware of our component functions.
+ And whenever react evaluates this JSX code, it will call these components functions.
+ And these components functions stand to return JSX code, which is also the evaluated.
+ Up until there's no more JSX code to be executed.
+ So react keeps on calling any component functions it encounters in JSX, then calls any functions that those functions might have returned so any elements thse component might have used in there JSX code until there are no more functions left.
+
+
+ Now it's add started by the index.js file, where initially point at this app component. That's the first component function which is being called, and React keeps calling all the components functions until there are no more components left to called. 
+
+ And that happens when the react app is been loaded on the screen which happens when the page is been visited.
+
+ The only problem with that is that React never repeats that.
+
+ React goes through all of that when the application is initially rendered, but thereafter it's done.
