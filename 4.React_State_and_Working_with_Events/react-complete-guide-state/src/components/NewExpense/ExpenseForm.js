@@ -4,13 +4,19 @@ import React from 'react';
 import './ExpenseForm.css'; 
 
 const ExpenseFrom = () => {
+
+    const titleChangeHandler = (event) => {
+        console.log(event)
+    };
+
+
     return(
         <form action="">
 
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label htmlFor="">Title</label>
-                    <input type="text" name="" id=""/>
+                    <input type="text" onChange={titleChangeHandler} />
                 </div>
 
                 <div className="new-expense__control">
