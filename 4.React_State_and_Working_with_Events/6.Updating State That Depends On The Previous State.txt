@@ -1,0 +1,45 @@
+this way is not the best way to update the state 
+  
+  const titleChangeHandler = (event) => {
+        // setEnteredTitle(event.target.value);
+        setUserInput({
+            ...userInput,
+            enteredTitle: event.target.value,
+        })
+    }
+
+The problem here is we are depending on the previous state for updating the state. Because we used this one state instead of three-states approach and we need to copy in the other values. 
+
+Now whenever, and that's another key rule which should memorize.
+Whenever updated state and depend on the previous state, and also if would be managing a counter which be increment by one (for example).
+
+This is the right way.
+
+setUserInput(() => {})
+
+
+We should call it and the pass in a function, and this function, which pass to setUserInput will automatically be executed by React. And it will receive the previous state snapshot, for that state for which you're calling.
+
+setUserInput((prevState) => {
+    return { ...prevState, enteredTitle: event.target.value}
+})
+
+We need to do like this because react schedules state updates, it doesn't perform them instantly. 
+And if schedule a lot of state updates at the same time, we could be depending on an outdated or incorrect state snapshot.
+
+So if we used this approach
+
+setUserInput((prevState) => {
+    return { ...prevState, enteredTitle: event.target.value}
+})
+
+React will guarantee that the state sapshot it gives you here in this inner function will always be the latest state snapshot, keeping all scheduled state updates in mind.
+
+
+///////////////////////////////
+MEMORIZE
+if your state update depends on the previous state, we used this 
+
+setUserInput((prevState) => {
+    return { ...prevState, enteredTitle: event.target.value}
+})
