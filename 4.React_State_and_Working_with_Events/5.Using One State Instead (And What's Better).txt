@@ -1,0 +1,46 @@
+In order to have  One State Instead of Multiple States need to call useState only onces and by passing in an object as a value like this: 
+
+ const [userInput, setUserInput] = useState({
+        enteredTitle: '',
+        enteredAmount: '',
+        enteredDate: ''
+    })
+
+same as multiple state
+
+const [enteredTitle, setEnteredTitle] = useState('');
+const [enteredAmount, setEnteredAmount] = useState('');
+const [enteredDate, setEnteredDate] = useState('');
+
+
+
+The difference now of course is that whenever you update this state 'const [userInput, setUserInput] = useState ...'
+you need to update all three properties and not just one.
+
+
+const titleChangeHandler = (event) => {
+  
+    setUserInput({
+        enteredTitle: event.target.value,
+    })
+
+}
+
+
+in setUserInput pass a new object where set entered title, and all other values contains the useState.
+
+If you would just set your new user input state to this object, tou would basicaly dump the other keys 'enteredAmount, enteredDate'
+Becsuse when update the state react will noot merge this with the old state. 
+It will siple replace the old state with the new one.
+And if your new one is an object with one key->value pair, 
+the old state will be replaces and therefore and the other two key->value pair 'enteredAmount, enteredDate' would be lost.
+
+We need to copy the existing values in state using spread operator (do this first) and then override enters title.
+
+const titleChangeHandler = (event) => {
+    setUserInput({
+         ...userInput
+        enteredTitle: event.target.value,
+       
+    })
+}
