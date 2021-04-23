@@ -1,0 +1,33 @@
+use State registres some State so some value as a State
+for the component in which it is being called.
+
+More precise. It registers it for a specific component instance.
+
+For example, ExpenseItem is being used for times.
+And Expenses.js we hae four ExpenseItems.
+
+Now every item receives its own separate State.
+Which is detached from the other States.
+
+foreach <ExpenseItem /> definition the ExpenseItem function is basically called four times. 
+And every time it's called, a new separate State is created.
+Of course in the same way but managed independently by React.
+
+So if we change the title in the first ExpenseItem
+the other ones are not affected because they have their own State.
+it's on a per component instance basic.
+
+
+////////////////////////////////
+So why we use const when we do eventually assing a new value?
+
+keep in mind that we're not assigning a value with the equal sign.
+
+title = something
+
+That would indeed fail. but that iss not how we assign a new value. When we update a State.
+
+
+Instead we call this State updating function.
+And the concrete value is simply managed somewhere else.
+
