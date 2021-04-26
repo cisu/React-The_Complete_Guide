@@ -13,7 +13,7 @@ const Expenses = (props) => {
         setFilterYear(selectedYear);
     }
 
-    const arrs = [1,2,3,4];
+   
 
     return (
         <Card className='expenses'>
@@ -25,7 +25,8 @@ const Expenses = (props) => {
 
             {props.items.map((expenses) => {
              return(
-                <ExpenseItem  
+                <ExpenseItem 
+                 key={expenses.id}
                 title={expenses.title} 
                 amount={expenses.amount}
                 date={expenses.date} 
