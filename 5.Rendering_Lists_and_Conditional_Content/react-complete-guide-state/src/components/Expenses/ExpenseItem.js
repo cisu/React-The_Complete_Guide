@@ -7,13 +7,7 @@ import './ExpenseItem.scss';
 
 const ExpenseItem = (props) => {
 
-    const [title, setTitle] = useState(props.title);
-    console.log('ExpenseItem evaluated by React');
-
-    const clickHandler = () => {
-        setTitle('Update!')
-        console.log(title)
-    }
+   
 
     return (
         // For sematic reasons wrap this entire card with the li tag because in the ExpensesList component we use a ul element
@@ -27,7 +21,7 @@ const ExpenseItem = (props) => {
                         ${props.amount}
                     </div>
                 </div>
-                <button onClick={clickHandler}>Change Title</button>
+                
             </Card>
         </li>
     )
