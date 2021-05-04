@@ -4,7 +4,7 @@ import Card from '../UI/Card';
 import ExpensesFilter from './ExpensesFilter';
 import ExpenseList from './ExpensesList';
 
-import './Expenses.css';
+import './Expenses.scss';
 
 const Expenses = (props) => {
 
