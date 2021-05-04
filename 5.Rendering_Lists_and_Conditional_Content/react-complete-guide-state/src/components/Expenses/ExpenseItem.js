@@ -16,21 +16,20 @@ const ExpenseItem = (props) => {
     }
 
     return (
-        <Card className='expense-item'>
-          
-            <ExpenseDate date={props.date}/>
+        // For sematic reasons wrap this entire card with the li tag because in the ExpensesList component we use a ul element
 
-            <div className='expense-item__description'>
-                <h2>{props.title}</h2>
-                <div className='expense-item__price'>
-                    ${props.amount}
+        <li>
+            <Card className='expense-item'>         
+                <ExpenseDate date={props.date}/>
+                <div className='expense-item__description'>
+                    <h2>{props.title}</h2>
+                    <div className='expense-item__price'>
+                        ${props.amount}
+                    </div>
                 </div>
-            </div>
-
-            <button onClick={clickHandler}>Change Title</button>
-
-        </Card>
-        
+                <button onClick={clickHandler}>Change Title</button>
+            </Card>
+        </li>
     )
 }
 
