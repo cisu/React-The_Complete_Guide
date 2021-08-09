@@ -1,34 +1,32 @@
-import React, {Fragment} from 'react';
+import { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import styles from './Modal.module.css'
 
-const Backdrop = props => {
-    return <div className={styles.backdrop} onClick={props.onClose}></div>
+import classes from './Modal.module.css';
+
+const Backdrop = (props) => {
+  return <div className={classes.backdrop} onClick={props.onClose}/>;
 };
 
-const ModalOverlay = props => {
-    return <div className={styles.modal}>
-        <div className={styles.content}>
-            {props.children}
-        </div>
-    </div>  
-}
+const ModalOverlay = (props) => {
+  return (
+    <div className={classes.modal}>
+      <div className={classes.content}>{props.children}</div>
+    </div>
+  );
+};
 
-// target the id we want to connect with the portal
-const portalElement = document.getElementById('overlays')
+const portalElement = document.getElementById('overlays');
 
 const Modal = (props) => {
-    return (
-        <Fragment>
-            {/* create a portal  */}
-          {ReactDOM.createPortal(<Backdrop onClose={props.onClose}/>, portalElement)}
+  return (
+    <Fragment>
+      {ReactDOM.createPortal(<Backdrop onClose={props.onClose} />, portalElement)}
+      {ReactDOM.createPortal(
+        <ModalOverlay>{props.children}</ModalOverlay>,
+        portalElement
+      )}
+    </Fragment>
+  );
+};
 
-          {ReactDOM.createPortal(<ModalOverlay>
-              {props.children}
-          </ModalOverlay>, portalElement) }           
-
-        </Fragment>
-    )
-}
-
-export default Modal
+export default Modal;
