@@ -8,8 +8,6 @@ const defaultCartState = {
 };
 
 const cartReducer = (state, action) => {
-
-  // check if an item is add from the cart
   if (action.type === 'ADD') {
     const updatedTotalAmount =
       state.totalAmount + action.item.price * action.item.amount;
@@ -36,8 +34,6 @@ const cartReducer = (state, action) => {
       totalAmount: updatedTotalAmount,
     };
   }
-
-    // check if an item has remove from the cart 
   if (action.type === 'REMOVE') {
     const existingCartItemIndex = state.items.findIndex(
       (item) => item.id === action.id
